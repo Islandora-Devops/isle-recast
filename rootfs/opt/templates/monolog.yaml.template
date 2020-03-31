@@ -1,0 +1,9 @@
+monolog:
+
+  handlers:
+
+    recast:
+      type: rotating_file
+      path: /var/log/islandora/recast.log
+      level: $RECAST_LOG_LEVEL
+      max_files: 1
