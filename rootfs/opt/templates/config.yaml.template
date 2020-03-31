@@ -1,0 +1,47 @@
+---
+
+fedora_resource:
+  base_url: http://fcrepo:8080/fcrepo/rest
+
+# Missing from https://github.com/Islandora/Crayfish/blob/dev/Recast/cfg/config.example.yaml
+# # if drupal_base_url contains a path, be sure to include trailing slash
+# or relative paths will not resolve correctly.
+
+# (in Nia's version 8000 is used, in MVP2a/3 80 is used)
+# drupal_base_url: http://apache:80
+# gemini_base_url: http://apache:8000/gemini
+
+
+# debug: false 
+
+
+log:
+  # Valid log levels are:
+  # DEBUG, INFO, NOTICE, WARNING, ERROR, CRITICAL, ALERT, EMERGENCY, NONE
+  # log level none won't open logfile
+  level: $RECAST_LOG_LEVEL
+  file: /var/log/islandora/recast.log
+
+syn:
+  # toggles JWT security for service
+  enable: true
+  # Path to the syn config file for authentication.
+  # example can be found here:
+  # https://github.com/Islandora/Syn/blob/master/conf/syn-settings.example.xml
+  config: ../syn-settings.xml
+
+# Add namespace prefixes used by Fedora for recast service
+# Must be inside an array to maintain the internal associative array.
+
+# Add namespace prefixes used by Fedora for recast service
+# Must be inside an array to maintain the internal associative array.
+namespaces:
+-
+  acl: "http://www.w3.org/ns/auth/acl#"
+  fedora: "http://fedora.info/definitions/v4/repository#"
+  ldp: "http://www.w3.org/ns/ldp#"
+  memento: "http://mementoweb.org/ns#"
+  pcdm: "http://pcdm.org/models#"
+  pcdmuse: "http://pcdm.org/use#"
+  webac: "http://fedora.info/definitions/v4/webac#"
+  vcard: "http://www.w3.org/2006/vcard/ns#"
